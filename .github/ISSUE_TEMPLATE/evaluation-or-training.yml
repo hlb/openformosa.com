@@ -1,0 +1,33 @@
+name: Evaluation or training work
+description: Propose a benchmark, model run, reproducibility fix, or release-documentation task.
+title: "[Model] "
+labels: [model, review-needed]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        OpenFormosa does not collect datasets through GitHub. Do not attach raw audio, transcripts, private documents, IDs, enterprise files, or sensitive data.
+  - type: dropdown
+    id: work-type
+    attributes:
+      label: Work type
+      options: [Benchmark, Training run, Model card, Release check, Reproducibility bug, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: Describe the benchmark, model behavior, training run, or release documentation change.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Existing artifacts or commands
+      description: Link to code, model cards, public benchmark outputs, or reproduction commands. Do not submit raw datasets.
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks or review notes
+      description: Include privacy, safety, licensing, or metric concerns if relevant.

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="post-shell">
+  <header class="post-hero section-pad">
+    <p class="eyebrow" data-i18n="tag_{{ page.category | default: 'blog' }}">{{ page.category | default: 'Blog' }}</p>
+    <h1 data-i18n="post_{{ page.i18n_key }}_title">{{ page.title }}</h1>
+    <p class="lede" data-i18n="post_{{ page.i18n_key }}_desc">{{ page.description }}</p>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if page.tags %}<span>·</span><span>{{ page.tags | join: ', ' }}</span>{% endif %}
+    </div>
+  </header>
+  <div class="post-body section-pad prose">
+    {{ content }}
+  </div>
+</article>
+{% include mathjax.html %}

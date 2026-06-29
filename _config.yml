@@ -1,0 +1,35 @@
+title: OpenFormosa
+description: 台灣取向模型訓練與評測工作站，先做 OpenFormosa-Base，再接 ASR、TTS、OCR 和台灣在地 benchmark。
+baseurl: ""
+url: ""
+lang: zh-Hant
+locale: zh_TW
+timezone: Asia/Taipei
+# Google Analytics 4 Measurement ID. Only emitted in production builds
+# (jekyll.environment == 'production'); local `jekyll serve` never sends data.
+google_analytics: "G-R2L97Y0JKF"
+permalink: /blog/:year/:month/:day/:title/
+author:
+  name: OpenFormosa contributors
+  url: https://github.com/OpenFormosa
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+exclude:
+  - README.md
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - PUBLICATION_CHECKLIST.md
+  - SECURITY.md
+  - _config.production.example.yml
+  - _config.production.yml
+  - node_modules
+  - scripts
+  - vendor
+  - .bundle
+  - .sass-cache

@@ -1,0 +1,96 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: "Public site URL, for example https://openformosa.com"
+        required: false
+        type: string
+      baseurl:
+        description: "Base path, for example /openformosa-pages. Leave empty for a root domain."
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Write production config
+        shell: bash
+        run: |
+          set -euo pipefail
+          site_url="${{ inputs.site_url }}"
+          baseurl="${{ inputs.baseurl }}"
+          if [ -z "$site_url" ]; then
+            site_url="${{ vars.SITE_URL }}"
+          fi
+          if [ -z "$baseurl" ]; then
+            baseurl="${{ vars.SITE_BASEURL }}"
+          fi
+          if [ -z "$site_url" ]; then
+            site_url="${{ steps.pages.outputs.origin }}"
+          fi
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          if [ -z "$site_url" ]; then
+            site_url="https://${GITHUB_REPOSITORY_OWNER}.github.io"
+          fi
+          if [ -z "$baseurl" ] && [ "$site_url" = "https://${GITHUB_REPOSITORY_OWNER}.github.io" ]; then
+            if [ "$repo_name" = "${GITHUB_REPOSITORY_OWNER}.github.io" ]; then
+              baseurl=""
+            else
+              baseurl="/${repo_name}"
+            fi
+          fi
+          cat > _config.production.yml <<YAML
+          url: "${site_url}"
+          baseurl: "${baseurl}"
+          YAML
+          echo "OPENFORMOSA_SITE_BASE=${site_url}${baseurl}" >> "$GITHUB_ENV"
+
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+        run: |
+          bundle exec jekyll clean
+          bundle exec jekyll build --config _config.yml,_config.production.yml
+
+      - name: Validate public build
+        run: node scripts/validate-public-build.mjs _site --require-absolute --expected-base="$OPENFORMOSA_SITE_BASE"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

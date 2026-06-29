@@ -1,0 +1,117 @@
+---
+layout: default
+title: Models
+i18n_key: models
+description: OpenFormosa proposes a Taiwan-rooted pretrain base model as the shared foundation for ASR, TTS, OCR, and Taiwan-language AI.
+---
+<header class="page-hero section-pad"><p class="eyebrow" data-i18n="models_eyebrow">Models</p><h1 data-i18n="models_h1">OpenFormosa-Base first, then ASR, TTS, OCR.</h1><p class="lede" data-i18n="models_lede">The first OpenFormosa plan is a Taiwan-rooted pretrain base model, with ASR, TTS, and OCR released as task-specific branches on top of that shared backbone.</p></header>
+<section class="section section-pad split">
+  <div class="callout">
+    <p class="eyebrow" data-i18n="models_base_eyebrow">Pretrain base model</p>
+    <h2 data-i18n="models_base_title">OpenFormosa-Base</h2>
+    <p data-i18n="models_base_desc">A shared Taiwan-rooted foundation model should learn local text, speech transcripts, pronunciation notation, forms, receipts, addresses, and layout conventions before task-specific fine-tuning.</p>
+  </div>
+  <ul class="check-list">
+    <li><strong data-i18n="models_base_l1_title">One shared backbone.</strong> <span data-i18n="models_base_l1_text">ASR correction, TTS normalization, OCR extraction, and evaluation tools should reuse the same tokenizer and Taiwan knowledge.</span></li>
+    <li><strong data-i18n="models_base_l2_title">Pretrain before demos.</strong> <span data-i18n="models_base_l2_text">Small demos matter, but the public roadmap should name the base model that makes those demos coherent.</span></li>
+    <li><strong data-i18n="models_base_l3_title">Auditable training inputs.</strong> <span data-i18n="models_base_l3_text">Training summaries should only reference inputs already cleared before a run; this site is not an intake channel.</span></li>
+  </ul>
+</section>
+<section class="section section-pad reveal">
+  <div class="section-head">
+    <h2 data-i18n="models_family_title">A model family people can remember.</h2>
+    <p data-i18n="models_family_desc">The animal names are not decoration. They turn the model family into a readable system: same OpenFormosa bag, different task character, clear Taiwan memory.</p>
+  </div>
+  <div class="family-grid">
+    <article class="family-card" style="--accent:var(--barbet)">
+      {% include crest.html type="base" %}
+      <span class="card-tags"><span class="role">Base</span><span class="status-badge is-shipped" data-i18n="status_shipped">Shipped</span></span>
+      <p class="latin" data-i18n="home_family_base_latin">Taiwan Barbet · Barbet</p>
+      <h3 data-i18n="home_family_base_title">記得住台灣</h3>
+      <p data-i18n="home_family_base_text">The five-color bird: a multimodal, multi-capability base model that holds Taiwan context.</p>
+    </article>
+    <article class="family-card" style="--accent:var(--blackbear)">
+      {% include crest.html type="asr" %}
+      <span class="card-tags"><span class="role">ASR</span><span class="status-badge is-planned" data-i18n="status_planned">Planned</span></span>
+      <p class="latin" data-i18n="home_family_asr_latin">Formosan Black Bear · BlackBear-ASR</p>
+      <h3 data-i18n="home_family_asr_title">聽得懂台灣</h3>
+      <p data-i18n="home_family_asr_text">A steady listener for Taiwan Mandarin and Taigi/Hakka accents.</p>
+    </article>
+    <article class="family-card" style="--accent:var(--bluemagpie)">
+      {% include crest.html type="tts" %}
+      <span class="card-tags"><span class="role">TTS</span><span class="status-badge is-shipped" data-i18n="status_shipped">Shipped</span></span>
+      <p class="latin" data-i18n="home_family_tts_latin">Taiwan Blue Magpie · BlueMagpie-TTS</p>
+      <h3 data-i18n="home_family_tts_title">說得出台灣</h3>
+      <p data-i18n="home_family_tts_text">A living voice for Taiwan pronunciation, Bopomofo, Tailo, local terms, prosody, and style control.</p>
+    </article>
+    <article class="family-card" style="--accent:var(--sikadeer)">
+      {% include crest.html type="ocr" %}
+      <span class="card-tags"><span class="role">OCR</span><span class="status-badge is-planned" data-i18n="status_planned">Planned</span></span>
+      <p class="latin" data-i18n="home_family_ocr_latin">Formosan Sika Deer · SikaDeer-OCR</p>
+      <h3 data-i18n="home_family_ocr_title">讀得懂台灣</h3>
+      <p data-i18n="home_family_ocr_text">A careful eye for receipts, forms, tables, menus, addresses, layout parsing, and structured extraction.</p>
+    </article>
+  </div>
+</section>
+<section class="section section-pad reveal">
+  <div class="section-head">
+    <h2 data-i18n="models_belief_title">The point is not another chatbot.</h2>
+    <p data-i18n="models_belief_desc">OpenFormosa-Base is meant to be the shared Taiwan AI layer: tokenizer, local language memory, long-context document handling, task adapters, and evaluation rules in one reusable system.</p>
+  </div>
+  <div class="directory-grid">
+    <article class="directory-card"><span class="tag" data-i18n="models_belief_01_tag">Context</span><h3 data-i18n="models_belief_01_title">Taiwan is not a translation patch</h3><p data-i18n="models_belief_01_text">Traditional Chinese is only the surface. The model must learn Taiwan Mandarin, Taigi traces, Hakka traces, Bopomofo, Tailo, local terms, public documents, and social writing styles.</p></article>
+    <article class="directory-card"><span class="tag" data-i18n="models_belief_02_tag">Scale</span><h3 data-i18n="models_belief_02_title">1B is a deployable layer</h3><p data-i18n="models_belief_02_text">The goal is not to beat every giant model. The goal is a compact base that schools, labs, startups, local venues, and enterprises can run, adapt, and audit.</p></article>
+    <article class="directory-card"><span class="tag" data-i18n="models_belief_03_tag">Open</span><h3 data-i18n="models_belief_03_title">Open source is a trust mechanism</h3><p data-i18n="models_belief_03_text">Tokenizer specs, evaluation sets, model cards, data gates, and downstream recipes should be inspectable so the project can be improved instead of merely marketed.</p></article>
+    <article class="directory-card"><span class="tag" data-i18n="models_belief_04_tag">Architecture</span><h3 data-i18n="models_belief_04_title">Shared backbone, separate adapters</h3><p data-i18n="models_belief_04_text">Audio and vision should not crush the 1B text model. ASR, TTS, and OCR connect through adapters or heads while sharing the same Taiwan-aware language core.</p></article>
+  </div>
+</section>
+<section class="section section-pad reveal">
+  <div class="section-head">
+    <h2 data-i18n="models_tech_title">Technical route: Taiwan-Omni-1B.</h2>
+    <p data-i18n="models_tech_desc">Not a fine-tune of a foreign model. OpenFormosa is designed end to end — architecture, tokenizer, data, long context, post-training, and downstream adapters.</p>
+  </div>
+  <div class="spec-list">
+    <div class="spec-row">
+      <div class="spec-key">
+        {% include crest.html type="tokenizer" %}
+        <span class="spec-name" data-i18n="models_tech_tokenizer_k">Taiwan multilingual tokenizer</span>
+        <span class="spec-tag" data-i18n="models_tech_tokenizer_tag">IP 01 · Tokenizer · Pangolin</span>
+        <span class="status-badge is-shipped" data-i18n="status_shipped">Shipped</span>
+      </div>
+      <p data-i18n="models_tech_tokenizer_text">Optimized for Taiwan Traditional Chinese while keeping multilingual coverage — Bopomofo, Tailo, POJ, Taigi Han characters, Hakka terms, code-switching, and code. The goal is not the largest vocab but the best token efficiency for Taiwan text, so the same 128K context holds more real content.</p>
+    </div>
+    <div class="spec-row">
+      <div class="spec-key">
+        <span class="spec-name" data-i18n="models_tech_backbone_k">1B compact backbone</span>
+        <span class="spec-tag" data-i18n="models_tech_backbone_tag">Core · Backbone</span>
+        <span class="status-badge is-shipped" data-i18n="status_shipped">Shipped</span>
+      </div>
+      <p data-i18n="models_tech_backbone_text">A compact decoder-only model that is deployable, fine-tunable, and private-deployable — a shared language hub for ASR, TTS, OCR, and VLM. A MiniCPM-style core with GQA, 128K context, MTP, reasoning modes, and specialist distillation.</p>
+    </div>
+    <div class="spec-row">
+      <div class="spec-key">
+        <span class="spec-name" data-i18n="models_tech_context_k">Long context</span>
+        <span class="spec-tag" data-i18n="models_tech_context_tag">Context · 128K → 1M</span>
+        <span class="status-badge is-shipped" data-i18n="status_shipped">Shipped</span>
+      </div>
+      <p data-i18n="models_tech_context_text">128K as production-grade context for long transcripts, document summaries, multi-document RAG, and Taiwan regulation and official-letter QA. 1M as a research branch using compressed memory, sparse attention, local windows, and prefix cache for long-text retrieval and agent memory.</p>
+    </div>
+    <div class="spec-row">
+      <div class="spec-key">
+        <span class="spec-name" data-i18n="models_tech_adapters_k">ASR / TTS / OCR adapters</span>
+        <span class="spec-tag" data-i18n="models_tech_adapters_tag">Multimodal · Adapters</span>
+        <span class="status-badge is-progress" data-i18n="status_progress">In progress</span>
+      </div>
+      <p data-i18n="models_tech_adapters_text">A shared text backbone; speech and vision connect through adapters, projectors, and separate heads. The three tasks share Taiwan language understanding while keeping their own data and heads — so the 1B core is not crushed by audio or image tokens, and each task iterates independently.</p>
+    </div>
+  </div>
+</section>
+<section class="section section-pad soft-panel prose reveal">
+  <h2 data-i18n="models_design_title">Design principles</h2>
+  <ul>
+    <li><strong data-i18n="models_principle_task_title">Task-first:</strong> <span data-i18n="models_principle_task_text">ASR, TTS, and OCR are practical entry points for Taiwan AI infrastructure.</span></li>
+    <li><strong data-i18n="models_principle_evidence_title">Evidence-first:</strong> <span data-i18n="models_principle_evidence_text">scores, raw outputs, and error analysis before public claims.</span></li>
+    <li><strong data-i18n="models_principle_private_title">Private-by-default enterprise data:</strong> <span data-i18n="models_principle_private_text">customer data is not used for a general model unless explicitly opted in.</span></li>
+    <li><strong data-i18n="models_principle_open_title">Open core:</strong> <span data-i18n="models_principle_open_text">tokenizer, evaluation scripts, model cards, benchmark artifacts, and tooling should be open whenever possible.</span></li>
+  </ul>
+</section>

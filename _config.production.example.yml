@@ -1,0 +1,14 @@
+# Copy this file to _config.production.yml and edit the URL before public deployment.
+#
+# Build with:
+#   bundle exec jekyll build --config _config.yml,_config.production.yml
+#
+# Root domain (current production):
+#   url: "https://openformosa.com"
+#   baseurl: ""
+#
+# GitHub project page example:
+#   url: "https://<user>.github.io"
+#   baseurl: "/<repo>"
+url: "https://openformosa.com"
+baseurl: ""

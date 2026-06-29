@@ -1,0 +1,37 @@
+---
+layout: default
+title: Evaluation
+i18n_key: evaluation
+description: Benchmarks, leaderboards, and error analysis for Taiwan-rooted AI models.
+---
+<header class="page-hero section-pad"><p class="eyebrow" data-i18n="evaluation_eyebrow">Evaluation</p><h1 data-i18n="evaluation_h1">Measure Taiwan capability before claiming it.</h1><p class="lede" data-i18n="evaluation_lede">OpenFormosa is now focused on evaluation suites, reproducible benchmarks, and model-training recipes. The project does not collect community datasets or accept raw data uploads.</p></header>
+<section class="section section-pad split">
+  <div class="soft-panel prose">
+    <h2 data-i18n="evaluation_scope_title">What we evaluate</h2>
+    <ul>
+      <li><strong data-i18n="evaluation_scope_asr_title">ASR:</strong> <span data-i18n="evaluation_scope_asr_text">Taiwan Mandarin, Taigi/Hakka influence, code-switching, timestamps, speaker labels, and correction quality.</span></li>
+      <li><strong data-i18n="evaluation_scope_tts_title">TTS:</strong> <span data-i18n="evaluation_scope_tts_text">Taiwan pronunciation, Bopomofo and Tailo handling, prosody, intelligibility, and misuse-resistant release settings.</span></li>
+      <li><strong data-i18n="evaluation_scope_ocr_title">OCR:</strong> <span data-i18n="evaluation_scope_ocr_text">Receipts, forms, menus, public notices, addresses, tables, and structured extraction accuracy.</span></li>
+      <li><strong data-i18n="evaluation_scope_lm_title">Language models:</strong> <span data-i18n="evaluation_scope_lm_text">Taiwan-local translation, public-sector wording, local terminology, long-context documents, and benchmark PPL.</span></li>
+    </ul>
+  </div>
+  <div class="soft-panel prose">
+    <h2 data-i18n="evaluation_no_intake_title">No public data intake</h2>
+    <ul>
+      <li data-i18n="evaluation_no_intake_1">Do not upload audio, transcripts, documents, IDs, private records, or enterprise files.</li>
+      <li data-i18n="evaluation_no_intake_2">Benchmark work uses existing licensed, public, synthetic, or internally approved evaluation sets.</li>
+      <li data-i18n="evaluation_no_intake_3">Issues should discuss tasks, metrics, bugs, and reproducibility, not new raw datasets.</li>
+      <li data-i18n="evaluation_no_intake_4">Rights or privacy concerns should be raised with the maintainers.</li>
+    </ul>
+  </div>
+</section>
+<section class="section section-pad">
+  <div class="section-head"><h2 data-i18n="evaluation_workflow_title">Evaluation workflow</h2><p data-i18n="evaluation_workflow_desc">Every score should be reproducible enough for someone else to rerun, inspect, and disagree with constructively.</p></div>
+  <div class="timeline">
+    <div class="timeline-card"><time>01</time><div><h3 data-i18n="evaluation_step1_title">Define the task contract</h3><p data-i18n="evaluation_step1_desc">Name the input format, output format, allowed prompt, model settings, metric, and failure labels before running models.</p></div></div>
+    <div class="timeline-card"><time>02</time><div><h3 data-i18n="evaluation_step2_title">Run smoke tests</h3><p data-i18n="evaluation_step2_desc">Check a small slice for prompt drift, decoding mistakes, missing fields, and obvious mismatch before full scoring.</p></div></div>
+    <div class="timeline-card"><time>03</time><div><h3 data-i18n="evaluation_step3_title">Score and publish artifacts</h3><p data-i18n="evaluation_step3_desc">Keep raw generations, metric outputs, config snapshots, and leaderboard rows together.</p></div></div>
+    <div class="timeline-card"><time>04</time><div><h3 data-i18n="evaluation_step4_title">Analyze errors</h3><p data-i18n="evaluation_step4_desc">Separate format failures, Taiwan-local wording misses, hallucinations, privacy risks, and metric limitations.</p></div></div>
+  </div>
+  <div class="hero-actions"><a class="btn primary" href="{{ '/training/' | relative_url }}" data-i18n="evaluation_cta_training">Open training plan</a><a class="btn" href="{{ '/models/' | relative_url }}" data-i18n="evaluation_cta_models">Model design</a></div>
+</section>

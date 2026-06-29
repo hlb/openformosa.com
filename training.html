@@ -1,0 +1,42 @@
+---
+layout: default
+title: Training
+i18n_key: training
+description: Training recipes, tokenizer work, model cards, and release planning for OpenFormosa models.
+---
+<header class="page-hero section-pad"><p class="eyebrow" data-i18n="training_eyebrow">Training</p><h1 data-i18n="training_h1">Train models with auditable recipes.</h1><p class="lede" data-i18n="training_lede">OpenFormosa focuses on tokenizer design, pretraining, fine-tuning, evaluation gates, and release documentation. Training inputs must already be licensed, public, synthetic, or separately approved before they appear in this project.</p></header>
+<section class="section section-pad split">
+  <div class="callout">
+    <p class="eyebrow" data-i18n="training_base_eyebrow">Model training</p>
+    <h2 data-i18n="training_base_title">OpenFormosa-Base</h2>
+    <p data-i18n="training_base_desc">The shared backbone should make Taiwan language, documents, pronunciation notation, and local evaluation behavior visible in one inspectable training path.</p>
+  </div>
+  <ul class="check-list">
+    <li><strong data-i18n="training_l1_title">Tokenizer first.</strong> <span data-i18n="training_l1_text">Track Taiwan Mandarin, Bopomofo, Tailo, Taigi/Hakka traces, addresses, forms, and public-sector wording.</span></li>
+    <li><strong data-i18n="training_l2_title">Training recipes.</strong> <span data-i18n="training_l2_text">Keep mixture notes, hyperparameters, checkpoints, eval gates, and reproducibility commands close to each release.</span></li>
+    <li><strong data-i18n="training_l3_title">No intake pipeline.</strong> <span data-i18n="training_l3_text">This site documents training and evaluation; it is not a place to submit or transfer datasets.</span></li>
+  </ul>
+</section>
+<section class="section section-pad">
+  <div class="section-head">
+    <h2 data-i18n="training_tracks_title">Training tracks</h2>
+    <p data-i18n="training_tracks_desc">Each model branch should have a small, inspectable path from recipe to checkpoint to benchmark result.</p>
+  </div>
+  <div class="directory-grid">
+    <article class="directory-card"><span class="tag" data-i18n="models_family_base_tag">Base</span><h3 data-i18n="training_track_base_title">Base and Instruct</h3><p data-i18n="training_track_base_text">Pretraining, instruction tuning, long-context adaptation, and Taiwan-local benchmark gates.</p></article>
+    <article class="directory-card"><span class="tag">ASR</span><h3 data-i18n="training_track_asr_title">ASR correction</h3><p data-i18n="training_track_asr_text">Adapters and correction models for transcripts, timestamps, diarization hints, and Taiwan-local terminology.</p></article>
+    <article class="directory-card"><span class="tag">TTS</span><h3 data-i18n="training_track_tts_title">TTS normalization</h3><p data-i18n="training_track_tts_text">Pronunciation, text normalization, style control, and release checks before any generated voice demo.</p></article>
+    <article class="directory-card"><span class="tag">OCR</span><h3 data-i18n="training_track_ocr_title">OCR extraction</h3><p data-i18n="training_track_ocr_text">Layout parsing, table extraction, address handling, confidence reporting, and privacy review for document tasks.</p></article>
+  </div>
+</section>
+<section class="section section-pad release-panel">
+  <div>
+    <p class="eyebrow" data-i18n="training_release_eyebrow">Release gates</p>
+    <h2 data-i18n="training_release_title">A checkpoint is not a release.</h2>
+    <p data-i18n="training_release_desc">Before publishing weights or demos, each run needs a model card, training-data summary, benchmark report, limitation notes, and acceptable-use boundary.</p>
+  </div>
+  <div class="release-list">
+    <a href="{{ '/forms/training-data-sheet/' | relative_url }}"><strong data-i18n="training_release_item2_title">Training data sheet</strong><span data-i18n="training_release_item2_text">A compact DBOM-style summary for sources already cleared before training.</span></a>
+    <a href="{{ '/evaluation/' | relative_url }}"><strong data-i18n="training_release_item3_title">Benchmark report</strong><span data-i18n="training_release_item3_text">Scores, raw generations, configs, and error analysis before any public claim.</span></a>
+  </div>
+</section>

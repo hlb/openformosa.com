@@ -1,0 +1,23 @@
+{% comment %}Model-family crest. Usage: {% include crest.html type="base" %} — base | asr | tts | ocr | tokenizer.
+ASR/TTS/OCR/tokenizer render the illustrated jia-zhi-bag icons; base falls back to the woven token-lattice mark.{% endcomment %}
+{% if include.type == "asr" %}
+<picture><source type="image/webp" srcset="{{ '/assets/img/model-asr-256.webp' | relative_url }}"><img class="crest-img" src="{{ '/assets/img/model-asr-256.png' | relative_url }}" alt="OpenFormosa BlackBear-ASR — Formosan black bear woven-bag icon" loading="lazy" decoding="async" width="256" height="256"></picture>
+{% elsif include.type == "tts" %}
+<picture><source type="image/webp" srcset="{{ '/assets/img/model-tts-256.webp' | relative_url }}"><img class="crest-img" src="{{ '/assets/img/model-tts-256.png' | relative_url }}" alt="OpenFormosa BlueMagpie-TTS — Taiwan blue magpie woven-bag icon" loading="lazy" decoding="async" width="256" height="256"></picture>
+{% elsif include.type == "ocr" %}
+<picture><source type="image/webp" srcset="{{ '/assets/img/model-ocr-256.webp' | relative_url }}"><img class="crest-img" src="{{ '/assets/img/model-ocr-256.png' | relative_url }}" alt="OpenFormosa SikaDeer-OCR — Formosan sika deer woven-bag icon" loading="lazy" decoding="async" width="256" height="256"></picture>
+{% elsif include.type == "tokenizer" %}
+<picture><source type="image/webp" srcset="{{ '/assets/img/model-tokenizer-256.webp' | relative_url }}"><img class="crest-img" src="{{ '/assets/img/model-tokenizer-256.png' | relative_url }}" alt="OpenFormosa tokenizer — Formosan pangolin woven-bag icon" loading="lazy" decoding="async" width="256" height="256"></picture>
+{% elsif include.type == "base" %}
+<picture><source type="image/webp" srcset="{{ '/assets/img/model-base-256.webp' | relative_url }}"><img class="crest-img" src="{{ '/assets/img/model-base-256.png' | relative_url }}" alt="OpenFormosa Taiwan Barbet base — full jia-zhi bag with Taiwan icons and endemic animals" loading="lazy" decoding="async" width="256" height="256"></picture>
+{% else %}
+<svg class="crest" viewBox="0 0 64 64" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect class="tile" x="3" y="3" width="58" height="58" rx="13"/>
+  <g class="mark-fill">
+    <rect x="18" y="18" width="11" height="11" rx="2.5"/>
+    <rect x="35" y="18" width="11" height="11" rx="2.5"/>
+    <rect x="18" y="35" width="11" height="11" rx="2.5"/>
+    <rect x="35" y="35" width="11" height="11" rx="2.5"/>
+  </g>
+</svg>
+{% endif %}

@@ -1,0 +1,27 @@
+<a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to content</a>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="OpenFormosa home" data-i18n-aria-label="brand_home_label">
+      <picture>
+        <source type="image/webp" srcset="{{ '/assets/img/openformosa-icon-96.webp' | relative_url }}">
+        <img src="{{ '/assets/img/openformosa-icon-96.png' | relative_url }}" alt="" class="brand-mark" width="42" height="42" decoding="async">
+      </picture>
+      <span>OpenFormosa</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" data-i18n-aria-label="nav_toggle_label" aria-expanded="false" data-i18n="nav_menu">Menu</button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ '/blog/' | relative_url }}" data-i18n="nav_blog">Log</a>
+      <a class="nav-social" href="https://discord.gg/N4YnrjjcW7" target="_blank" rel="noopener" aria-label="Discord" data-i18n-aria-label="discord_aria">{% include icon-discord.html %}<span class="label" data-i18n="nav_discord">Discord</span></a>
+      <a class="nav-social" href="https://huggingface.co/OpenFormosa" target="_blank" rel="noopener" aria-label="Hugging Face" data-i18n-aria-label="hf_aria">{% include icon-huggingface.html %}<span class="label" data-i18n="nav_hf">Hugging Face</span></a>
+      <a class="nav-social" href="https://github.com/OpenFormosa" target="_blank" rel="noopener" aria-label="GitHub" data-i18n-aria-label="github_aria">{% include icon-github.html %}<span class="label" data-i18n="nav_github">GitHub</span></a>
+      <span class="language-switcher" aria-label="Language">
+        <button type="button" data-lang-option="zh-Hant" aria-label="Traditional Chinese" aria-pressed="false" data-i18n-aria-label="lang_zh_label">繁中</button>
+        <button type="button" data-lang-option="en" aria-label="English" aria-pressed="false" data-i18n-aria-label="lang_en_label">EN</button>
+      </span>
+      <span class="theme-switcher" aria-label="Color mode" data-i18n-aria-label="theme_group_label">
+        <button type="button" data-theme-option="light" aria-label="Light mode" aria-pressed="false" data-i18n="theme_light_short" data-i18n-aria-label="theme_light_label">Light</button>
+        <button type="button" data-theme-option="dark" aria-label="Dark mode" aria-pressed="false" data-i18n="theme_dark_short" data-i18n-aria-label="theme_dark_label">Dark</button>
+      </span>
+    </nav>
+  </div>
+</header>

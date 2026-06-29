@@ -1,0 +1,22 @@
+{%- comment -%}
+  Google Analytics 4 (gtag.js). Emitted only in production builds that have a
+  Measurement ID set — see the gate in _layouts/default.html. Detailed custom
+  interaction events (language/theme switch, blog search & tag filter, TTS audio
+  play/progress/complete, ASR transcript reveal, CTA clicks) live in
+  assets/js/analytics.js. Outbound link, scroll and page_view tracking are left
+  to GA4 Enhanced Measurement to avoid double counting.
+{%- endcomment -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', {{ site.google_analytics | jsonify }}, {
+    // Report the in-page UI language, not the browser locale (this site switches
+    // language client-side, so navigator.language would misattribute switchers).
+    language: document.documentElement.lang || 'zh-Hant',
+    cookie_flags: 'SameSite=Lax;Secure',
+    // Server-rendered page identity, attached to page_view and every later event.
+    page_key: {{ include.page_key | jsonify }}
+  });
+</script>

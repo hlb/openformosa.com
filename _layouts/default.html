@@ -1,0 +1,87 @@
+{% assign page_key = page.i18n_key %}
+{% unless page_key %}
+  {% assign page_key = page.title | slugify %}
+{% endunless %}
+{% capture page_title %}{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}{% endcapture %}
+{% assign page_description = page.description | default: site.description %}
+{% assign page_url = page.url | absolute_url %}
+{% assign page_image = page.og_image | default: '/assets/img/openformosa-og.png' | absolute_url %}
+{% assign page_locale = page.locale | default: site.locale | default: 'zh_TW' %}
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title | strip | escape }}</title>
+    <meta name="description" content="{{ page_description | escape }}">
+    <link rel="canonical" href="{{ page_url | escape }}">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:locale" content="{{ page_locale | escape }}">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="{{ page_title | strip | escape }}">
+    <meta property="og:description" content="{{ page_description | escape }}">
+    <meta property="og:url" content="{{ page_url | escape }}">
+    <meta property="og:image" content="{{ page_image | escape }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page_title | strip | escape }}">
+    <meta name="twitter:description" content="{{ page_description | escape }}">
+    <meta name="twitter:image" content="{{ page_image | escape }}">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fff9ed" data-theme-color>
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var saved = localStorage.getItem("openformosa-theme");
+          var theme = saved === "dark" ? "dark" : "light";
+          document.documentElement.dataset.theme = theme;
+          var themeColor = document.querySelector("[data-theme-color]");
+          if (themeColor) themeColor.setAttribute("content", theme === "dark" ? "#11100e" : "#fff9ed");
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      }());
+    </script>
+    {%- if jekyll.environment == 'production' and site.google_analytics and site.google_analytics != "" -%}
+    {% include google-analytics.html page_key=page_key %}
+    {%- endif -%}
+    <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} feed" href="{{ '/feed.xml' | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css?v=brand29' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/i18n.css?v=brand29' | relative_url }}">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
+        "name": {{ page_title | strip | jsonify }},
+        "description": {{ page_description | jsonify }},
+        "url": {{ page_url | jsonify }},
+        "image": {{ page_image | jsonify }},
+        "inLanguage": {{ page.lang | default: site.lang | default: 'zh-Hant' | jsonify }},
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": {{ site.title | jsonify }},
+          "url": {{ '/' | absolute_url | jsonify }}
+        }{% if page.layout == 'post' %},
+        "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+        "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }}{% endif %}
+      }
+    </script>
+  </head>
+  <body class="{{ page.body_class | default: '' }}" data-page-key="{{ page_key }}">
+    {% include header.html %}
+    <main id="main" tabindex="-1">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    {% if page.math %}
+    {% include mathjax.html %}
+    {% endif %}
+    <script src="{{ '/assets/js/i18n.js?v=brand29' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js?v=brand29' | relative_url }}"></script>
+    {%- if jekyll.environment == 'production' and site.google_analytics and site.google_analytics != "" -%}
+    <script src="{{ '/assets/js/analytics.js?v=brand29' | relative_url }}"></script>
+    {%- endif -%}
+  </body>
+</html>

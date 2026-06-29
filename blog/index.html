@@ -1,0 +1,29 @@
+---
+layout: default
+title: Log
+i18n_key: blog
+description: A log of OpenFormosa's model design, tokenizer, evaluation, and release work.
+---
+<header class="page-hero section-pad">
+  <p class="eyebrow" data-i18n="blog_eyebrow">Log</p>
+  <h1 data-i18n="blog_h1">Training and research log.</h1>
+  <p class="lede" data-i18n="blog_lede">A log of OpenFormosa's model design, tokenizer, evaluation, and release work.</p>
+  {% if site.posts.size > 0 %}
+  <div class="blog-tools"><input type="search" data-blog-search placeholder="Search posts" data-i18n-placeholder="blog_search_placeholder"><select data-blog-tag><option value="all" data-i18n="blog_all_tags">All tags</option><option value="pretrain" data-i18n="tag_pretrain">Pretrain</option><option value="evaluation" data-i18n="tag_evaluation">Evaluation</option><option value="asr">ASR</option><option value="tts">TTS</option><option value="ocr">OCR</option><option value="design" data-i18n="tag_design">Design</option><option value="docs" data-i18n="tag_docs">Docs</option><option value="markdown">Markdown</option><option value="math" data-i18n="tag_math">Math</option></select></div>
+  {% endif %}
+</header>
+{% if site.posts.size > 0 %}
+<section class="section section-pad article-strip">
+{% for post in site.posts %}
+  <a class="post-card" href="{{ post.url | relative_url }}" data-post-card data-title="{{ post.title | escape }}" data-zh-title="{{ post.zh_title | escape }}" data-tags="{{ post.tags | join: ' ' }} {{ post.category }}"><div class="meta">{{ post.date | date: "%b %-d, %Y" }} · <span data-i18n="tag_{{ post.category }}">{{ post.category }}</span></div><h3 data-i18n="post_{{ post.i18n_key }}_title">{{ post.title }}</h3><p data-i18n="post_{{ post.i18n_key }}_desc">{{ post.description }}</p><div class="woven-band"></div></a>
+{% endfor %}
+</section>
+{% else %}
+<section class="section section-pad">
+  <div class="soft-panel blog-empty">
+    <div class="weave-rule" aria-hidden="true"></div>
+    <h2 data-i18n="blog_empty_title">努力寫稿中</h2>
+    <p data-i18n="blog_empty_text">The log is on its way — notes on model training, tokenizer work, evaluation, and releases are being written. Check back soon.</p>
+  </div>
+</section>
+{% endif %}

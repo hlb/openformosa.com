@@ -1,0 +1,9 @@
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/bundle/
+node_modules/
+_config.production.yml
+.DS_Store
+.claude/
